@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="container mt-4">
+        <div class="mb-3"><strong>Статус</strong>: <span>{{ status }}</span></div>
+
+        <div class="mb-3"><strong>getCurrentPosition</strong>:
+            <pre>{{ current }}</pre>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>accuracy</th>
+                    <th>altitude</th>
+                    <th>altitudeAccuracy</th>
+                    <th>heading</th>
+                    <th>latitude</th>
+                    <th>longitude</th>
+                    <th>speed</th>
+                    <th>timestamp</th>
+                </tr>
+                <tr v-for="(pos, index) in positions" :key="index">
+                    <td>{{ pos.coords.accuracy }}</td>
+                    <td>{{ pos.coords.altitude }}</td>
+                    <td>{{ pos.coords.altitudeAccuracy }}</td>
+                    <td>{{ pos.coords.heading }}</td>
+                    <td>{{ pos.coords.latitude }}</td>
+                    <td>{{ pos.coords.longitude }}</td>
+                    <td>{{ pos.coords.speed }}</td>
+                    <td>{{ pos.timestamp }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3.4.27/dist/vue.global.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>
